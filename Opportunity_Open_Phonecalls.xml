@@ -1,0 +1,13 @@
+<fetch returntotalrecordcount="true" aggregate="true">
+  <entity name="opportunity">
+    <attribute name="opportunityid" alias="opp" aggregate="count" />
+    <filter>
+      <condition attribute="opportunityid" operator="eq" value="00000000-0000-0000-0000-000000000000" />
+    </filter>
+    <link-entity name="activitypointer" from="regardingobjectid" to="opportunityid" alias="activity">
+      <filter>
+        <condition attribute="statecode" operator="eq" value="0" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>
