@@ -1,0 +1,11 @@
+<fetch aggregate="true">
+  <entity name="account">
+    <attribute name="accountid" alias="account" groupby="true" />
+    <link-entity name="activitypointer" from="regardingobjectid" to="accountid" link-type="outer" alias="activity" visible="true">
+      <attribute name="modifiedon" alias="modifiedon" aggregate="max" />
+      <filter>
+        <condition attribute="modifiedon" operator="olderthan-x-hours" value="12" />
+      </filter>
+    </link-entity>
+  </entity>
+</fetch>
